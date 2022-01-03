@@ -81,8 +81,9 @@ brew 'pulumi'
 
 # Font related
 tap 'homebrew/cask-fonts'
-cask 'font-source-code-pro'     # -- Open Source Font 
-cask 'font-source-sans-pro'     # -- Open Source Font 
+cask 'font-source-code-pro-for-powerline' # -- Open Source Font 
+# cask 'font-source-code-pro'     # -- Open Source Font 
+# cask 'font-source-sans-pro'     # -- Open Source Font 
 #cask 'font-fantasque-sans-mono'
 brew 'svn'                      # -- Required by font-source-*-pro
 brew 'highlight'                # -- Convert source code to formatted text with syntax highlighting
