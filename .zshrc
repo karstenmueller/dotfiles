@@ -38,6 +38,9 @@ plugins=(
 )
 # zsh-syntax-highlighting  has to be the last plugin
 
+# zsh plugin does not work!?
+if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
+
 # --------------------------------------------------------------------------
 # History
 export HISTFILE="$HOME/.zsh_history"
@@ -63,6 +66,7 @@ setopt HIST_FIND_NO_DUPS
 if command -v direnv &>/dev/null; then
   alias enva='direnv allow'
   export DIRENV_WARN_TIMEOUT=360s
+  # export DIRENV_LOG_FORMAT="" # makes direnv less noisy
   eval "$(direnv hook zsh)"
 fi
 
