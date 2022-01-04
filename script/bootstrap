@@ -5,23 +5,21 @@
 
 set -o nounset -o errexit -o pipefail
 
-if [ -d ~/.dotfiles ]; then
-    echo "--> linking ~/.dotfiles to $HOME/"
-    pushd ~/.dotfiles >/dev/null
-    while IFS= read -r -d '' i; do
-        test -f "$(pwd)/$i" &&
-            ln -sf "$(pwd)/$i" "$HOME"/
-    done < <(find . -type f -name '.[a-zA-Z]*' -print0)
-    popd >/dev/null
+pushd "$(dirname "${BASH_SOURCE[0]}")/../" >/dev/null
 
-    echo "--> linking .dotfiles/.oh-my-zsh/custom to .oh-my-zsh/custom"
-    for subdir in plugins themes; do
-        mkdir -p "$HOME/.oh-my-zsh/custom/$subdir"
-        pushd "$HOME"/.dotfiles/.oh-my-zsh/custom/$subdir >/dev/null
-        ln -sf "$(pwd)"/* "$HOME/.oh-my-zsh/custom/$subdir"
-    done
+echo "--> linking dotfiles in $(pwd) to $HOME/"a
+while IFS= read -r -d '' i; do
+    test -f "$(pwd)/$i" &&
+        ln -sf "$(pwd)/$i" "$HOME"/
+done < <(find . -type f -name '.[a-zA-Z]*' -print0)
+
+echo "--> linking $(pwd)/.oh-my-zsh/custom to $HOME/.oh-my-zsh/custom"
+for subdir in plugins themes; do
+    mkdir -p "$HOME/.oh-my-zsh/custom/$subdir"
+    pushd ".oh-my-zsh/custom/$subdir" >/dev/null
+    ln -sf "$(pwd)"/* "$HOME/.oh-my-zsh/custom/$subdir"
     popd >/dev/null
-fi
+done
 
 # create some required directories
 install -d -m 700 ~/.ssh ~/.local
