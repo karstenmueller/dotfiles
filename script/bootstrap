@@ -1,32 +1,30 @@
 #!/usr/bin/env bash
 
+# used by macos-bootstrap. see https://github.com/karstenmueller/macos-bootstrap/blob/main/modules/dotfiles.sh
+# will be executed by GitHub codesoaces if you choose so, see "Automatically install dotfiles" in https://github.com/settings/codespaces
+
 set -o nounset -o errexit -o pipefail
 
-# make files in ~/.dotfiles available
-echo "--> linking ~/.dotfiles to $HOME/"
-pushd ~/.dotfiles >/dev/null
-# for i in $(find . -type f -name '.[a-zA-Z]*'); do
-#     test -f "$(pwd)/$i" &&
-#         ln -sf "$(pwd)/$i" "$HOME"/
-# done
-while IFS= read -r -d '' i; do
-    test -f "$(pwd)/$i" &&
-        ln -sf "$(pwd)/$i" "$HOME"/
-done < <(find . -type f -name '.[a-zA-Z]*' -print0)
-popd >/dev/null
+if [ -d ~/.dotfiles ]; then
+    echo "--> linking ~/.dotfiles to $HOME/"
+    pushd ~/.dotfiles >/dev/null
+    while IFS= read -r -d '' i; do
+        test -f "$(pwd)/$i" &&
+            ln -sf "$(pwd)/$i" "$HOME"/
+    done < <(find . -type f -name '.[a-zA-Z]*' -print0)
+    popd >/dev/null
 
-echo "--> linking .dotfiles/.oh-my-zsh/custom to .oh-my-zsh/custom"
-for subdir in plugins themes; do
-    mkdir -p "$HOME/.oh-my-zsh/custom/$subdir"
-    pushd "$HOME"/.dotfiles/.oh-my-zsh/custom/$subdir >/dev/null
-    ln -sf "$(pwd)"/* "$HOME/.oh-my-zsh/custom/$subdir"
-done
-popd >/dev/null
+    echo "--> linking .dotfiles/.oh-my-zsh/custom to .oh-my-zsh/custom"
+    for subdir in plugins themes; do
+        mkdir -p "$HOME/.oh-my-zsh/custom/$subdir"
+        pushd "$HOME"/.dotfiles/.oh-my-zsh/custom/$subdir >/dev/null
+        ln -sf "$(pwd)"/* "$HOME/.oh-my-zsh/custom/$subdir"
+    done
+    popd >/dev/null
+fi
 
-mkdir -p "$HOME/.local"
-
-## create SSH directory
-install -d -m 700 ~/.ssh
+# create some required directories
+install -d -m 700 ~/.ssh ~/.local
 
 if [ "$(uname)" == "Darwin" ]; then
     # defaults Location for Screenshots
