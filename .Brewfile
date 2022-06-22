@@ -9,19 +9,18 @@ tap 'homebrew/bundle'           # -- Bundler for non-Ruby dependencies from Home
 tap 'homebrew/services'         # -- Manage background services with macOS' launchctl daemon manager.
 
 # Docker Inc
-# kubectl lives in Docker App
-cask 'docker'
+# docker with bells and whistles
 # cask 'homebrew/cask-versions/docker-edge'
-
-# docker with besssl and whistles
-brew 'docker'
-brew 'docker-machine'
-brew 'docker-compose'
-brew 'docker-credential-helper'
-brew 'docker-machine-nfs'
-cask 'virtualbox'
+cask 'docker'
+# brew 'docker'
+# brew 'docker-machine'
+# brew 'docker-compose'
+# brew 'docker-credential-helper'
+# brew 'docker-machine-nfs'
+# cask 'virtualbox'
 
 # Kubernetes
+brew 'kubernetes-cli'           # -- Kubernetes command-line interface
 tap 'johanhaleby/kubetail'      # -- aggregate (tail/follow) logs from multiple pods into one stream
 brew 'stern'                    # -- Tail multiple Kubernetes pods & their containers
 brew 'kubectx'                  # -- Tool that can switch between kubectl contexts easily and create aliases
@@ -30,12 +29,13 @@ brew 'kube-ps1'                 # -- Kubernetes prompt info for bash and zsh
 brew 'derailed/k9s/k9s'         # -- provides a terminal UI to interact with your Kubernetes clusters
 # brew 'minikube'               # -- Run a Kubernetes cluster locally
 # Operator SDK
-brew 'operator-sdk'             # -- SDK for building Kubernetes applications
+# brew 'operator-sdk'           # -- SDK for building Kubernetes applications
 brew 'derailed/popeye/popeye'   # -- A Kubernetes Cluster Sanitizer
+brew 'kubescape'                # -- Kubescape is a K8s open-source tool providing a multi-cloud K8s single pane of glass
 
 # Helm
 # brew 'helm'                   # -- Kubernetes package manager
-# brew 'helm@2'
+brew 'helm@2'
 brew 'helmfile'                 # -- Deploy Kubernetes Helm Charts
 tap 'helm/tap'  
 brew 'chart-releaser'           # -- Helps Turn GitHub Repositories into Helm Chart Repositories
@@ -48,9 +48,10 @@ brew 'chart-releaser'           # -- Helps Turn GitHub Repositories into Helm Ch
 # cask 'google-cloud-sdk'       
 
 # Cloud aws
-tap 'versent/homebrew-taps'
-brew 'saml2aws'                 # -- enables you to login and retrieve AWS temporary credentials using with ADFS or PingFederate Identity Providers
+# tap 'versent/homebrew-taps'
 brew 'awscli'                   # -- Official Amazon AWS command-line interface
+brew 'chamber'
+brew 'saml2aws'                 # -- enables you to login and retrieve AWS temporary credentials using with ADFS or PingFederate Identity Providers
 cask 'session-manager-plugin'   # -- Plugin for AWS CLI to start and end sessions that connect to managed instances
 tap 'weaveworks/tap'
 brew 'weaveworks/tap/eksctl'    # -- a CLI tool for creating clusters on EKS 
@@ -58,7 +59,7 @@ cask 'aws-vault'                # -- ool to securely store and access AWS creden
 # brew 'awsume'                 # -- Utility for easily assuming AWS IAM roles from the command-line
 
 # brew 'packer'                 # -- Tool for creating identical machine images for multiple platforms
-# cask 'multipass'              # -- Orchestrates virtual Ubuntu instances
+cask 'multipass'              # -- Orchestrates virtual Ubuntu instances
 
 # Terraform related
 brew 'graphviz'                 # -- Graph visualization software from AT&T and Bell Labs
@@ -71,6 +72,8 @@ tap 'alextodicescu/tgenv'
 brew 'tgenv', link: true        # -- Terragrunt version manager
 brew 'tfsec'                    # -- Static analysis security scanner for your terraform code
 brew 'terrascan'                # -- Detect compliance and security violations across Infrastructure as Code
+# tap 'salesforce/policy_sentry' 'https://github.com/salesforce/policy_sentry' # -- IAM Least Privilege Policy Generator
+# brew 'policy_sentry'
 
 # Pulumi related
 brew 'pulumi'
@@ -101,10 +104,13 @@ brew 'pre-commit'               # -- Framework for managing multi-language pre-c
 
 # GitHub tools
 brew 'gh'                       # -- GitHub’s official command line tool
+cask 'github'                   # -- GitHub’s official desktop client
 brew 'gitversion'               # -- semantic versioning
 brew 'git-credential-manager'   # -- Stores Git credentials
 tap 'nektos/tap'                # -- ??
-brew 'nektos/tap/act'           # -- Run your GitHub Actions locally
+brew 'act'                      # -- Run your GitHub Actions locally
+brew 'actionlint'               # -- Static checker for GitHub Actions workflow files
+
 
 # Editor & Terminal tools
 cask 'visual-studio-code'       # -- Open-source code editor
@@ -164,6 +170,7 @@ brew 'miniupnpc'                # -- enabling applications to access the service
 brew 'gnupg'                    # -- GNU Pretty Good Privacy (PGP) package
 brew 'pinentry-mac'             # -- Pinentry for GPG on Mac
 cask 'flux'                     # -- Adaptive brightness for external displays
+# brew 'ffmpeg'                   # -- Play, record, convert, and stream audio and video
 
 # more messengers ;)
 cask 'slack'
@@ -182,3 +189,4 @@ cask 'atext'                    # -- Tool to replace abbreviations while typing
 # cask 'openconnect-gui'          # -- Graphical OpenConnect client
 # cask '1password-cli'            # -- Command-line helper for the 1Password password manager
 cask 'drawio'                   # -- free online diagram software
+cask 'deepl'                    # -- online translating helper
