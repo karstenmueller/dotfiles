@@ -9,15 +9,9 @@ tap 'homebrew/bundle'           # -- Bundler for non-Ruby dependencies from Home
 tap 'homebrew/services'         # -- Manage background services with macOS' launchctl daemon manager.
 
 # Docker Inc
-# docker with bells and whistles
-# cask 'homebrew/cask-versions/docker-edge'
-cask 'docker'
-# brew 'docker'
-# brew 'docker-machine'
-# brew 'docker-compose'
-# brew 'docker-credential-helper'
-# brew 'docker-machine-nfs'
-# cask 'virtualbox'
+cask 'docker'                   # -- Docker Desktop (run it to create the link to docker command)
+brew 'colima'                   # -- Container runtimes on MacOS (and Linux) with minimal setup
+# brew 'nerdctl'                  # Docker-compatible CLI for containerd
 
 # Kubernetes
 brew 'kubernetes-cli'           # -- Kubernetes command-line interface
@@ -72,6 +66,7 @@ tap 'alextodicescu/tgenv'
 brew 'tgenv', link: true        # -- Terragrunt version manager
 brew 'tfsec'                    # -- Static analysis security scanner for your terraform code
 brew 'terrascan'                # -- Detect compliance and security violations across Infrastructure as Code
+brew 'infracost'                # -- Cost estimates for Terraform
 # tap 'salesforce/policy_sentry' 'https://github.com/salesforce/policy_sentry' # -- IAM Least Privilege Policy Generator
 # brew 'policy_sentry'
 
@@ -115,6 +110,7 @@ brew 'actionlint'               # -- Static checker for GitHub Actions workflow 
 # Editor & Terminal tools
 cask 'visual-studio-code'       # -- Open-source code editor
 cask 'alacritty'                # -- Cross-platform, GPU-accelerated terminal emulator
+# cask 'kitty'                    # -- GPU-based terminal emulator
 brew 'ripgrep'                  # -- a line-oriented search tool that recursively searches your current directory for a regex pattern.
 brew 'tmux'                     # -- Terminal multiplexer
 cask 'obsidian'                 # -- Knowledge base that works on top of a local folder of plain text Markdown files
@@ -124,7 +120,7 @@ brew 'yq'                       # -- Process YAML documents from the CLI
 brew 'yamllint'                 # -- Linter for YAML files
 # tap 'starkandwayne/cf'        # -- BOSH / Cloud Foundry / Kubernetes utilities
 # brew 'spruce'                 # -- a general purpose YAML & JSON merging tool
-# cask 'postman'                # -- Collaboration platform for API development
+cask 'postman'                # -- Collaboration platform for API development
 cask 'mactex-no-gui'            # -- Full TeX Live distribution without GUI applications, use with VScode extension "Latex Workshop"
 
 # Shell tools
@@ -136,8 +132,9 @@ brew 'shfmt'                    #  Autoformat shell script source code
 brew "gnu-sed"                  # -- GNU `sed`
 
 # dev Node.js
-brew 'node'                    # -- Platform built on V8 to build network applications
-
+brew 'node'                     # -- Platform built on V8 to build network applications
+brew 'nvm'                      # -- Manage multiple Node.js versions
+brew 'yarn'
 # dev Ruby
 # brew 'rbenv'                  # -- ruby version manager
 # brew 'ruby-build'             # -- Install various Ruby versions and implementations
@@ -153,6 +150,9 @@ brew 'python-tk'
 
 # dev Kubernetes
 brew 'skaffold', link: true     # -- cli tool that facilitates continuous development for Kubernetes applications.
+
+# dev typescript
+brew 'typescript'               # -- Language for application scale JavaScript development
 
 # miscellaneous tools
 brew 'dialog'                   # -- Script-driven curses widgets (application and library)
@@ -187,6 +187,9 @@ cask 'calibre'                  # -- E-books management software
 cask 'grandperspective'         # -- Graphically shows disk usage within a file system
 cask 'atext'                    # -- Tool to replace abbreviations while typing
 # cask 'openconnect-gui'          # -- Graphical OpenConnect client
-# cask '1password-cli'            # -- Command-line helper for the 1Password password manager
+cask '1password-cli'            # -- Command-line helper for the 1Password password manager
 cask 'drawio'                   # -- free online diagram software
 cask 'deepl'                    # -- online translating helper
+cask 'firefox'                  # -- Web Browser Mozilla Firefox
+cask 'monitorcontrol'           # -- Tool to control external monitor brightness & volume
+cask 'handbrake'
