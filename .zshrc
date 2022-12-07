@@ -9,15 +9,21 @@ _path+=":/usr/local/opt/coreutils/libexec/gnubin" # use Homebrew GNU tools with 
 _path+=":$GOPATH/bin"
 _path+=":$HOME/.krew/bin"
 _path+=":$HOME/.cargo/bin"
+PATH="$_path:$PATH"
 
 fpath=(~/.oh-my-zsh/custom $fpath)
 autoload -Uz compinit && compinit -i
 
-PATH="$_path:$PATH"
-TERM="xterm-256color"
+export LANG=C
+export TERM="xterm-256color"
 
 export APPLE_SSH_ADD_BEHAVIOR="macos"
 ssh-add -K ~/.ssh/id_rsa # macOS: passphrase will also be stored in the user's keychain
+
+# brew installed nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"                                       # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 
 # --------------------------------------------------------------------------
 # zsh related
@@ -40,6 +46,9 @@ plugins=(
 
 # zsh plugin does not work!?
 if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
+
+# use kubectl from asdf
+# eval "source $(brew --prefix asdf)/libexec/asdf.sh"
 
 # --------------------------------------------------------------------------
 # History
@@ -74,6 +83,16 @@ if command -v cloud-nuke &>/dev/null; then
   alias aws-nuke=cloud-nuke
 fi
 
+alias kics-scan='kics scan -p $1'
+# alias kics-scan='docker pull checkmarx/kics:latest && docker run -v $(pwd)/$1:/path checkmarx/kics scan -p "/path" -o "/path/"'
+
+if command -v yj &>/dev/null; then
+  alias yaml2hcl='yj -yc'
+  alias hcl2yaml='yj -cy'
+  alias json2hcl='yj -tc'
+  alias hcl2json='yj -cj'
+fi
+
 # eksctl
 # eval "$(eksctl completion zsh)"
 
@@ -103,17 +122,30 @@ alias eb="$EDITOR $HOME/.Brewfile"
 alias git-open='gh repo view --web'
 alias mtr='sudo /usr/local/sbin/mtr'
 
+# alias docker=podman
+
 # prune docker files
 alias docker-prune='docker system prune --all --force --volumes'
 
-# run super-linter
+# docker aliases
 alias super-linter='docker run -e RUN_LOCAL=true -v $(pwd):/tmp/lint github/super-linter'
+alias terraform-module-generator='docker run --rm -it -v $(pwd):/generated -e myuid="$(id -u):$(id -g)" sudokar/generator-tf-module'
 
 # pre-commit
-alias pre-commit-show='pre-commit run --all-files --show-diff-on-failure'
+alias pre-commit-show='pre-commit run --all-files --show-diff-on-failure --color=always'
+export PRE_COMMIT_ALLOW_NO_CONFIG="1"
 
-alias tf='terraform'
+# alias tf='terraform'
 alias tf-docs='terraform-docs markdown table --output-file README.md --output-mode inject .'
+
+# # prefer tf binary in $PATH else use terraform directly
+# function tf() {
+#   if which tf | grep -q /tf; then
+#     command tf "$@"
+#   else
+#     command terraform "$@"
+#   fi
+# }
 
 # --------------------------------------------------------------------------
 # Kubernetes
@@ -130,10 +162,13 @@ alias kc='kubectl'
 # alias kctx='kubectl config current-context'
 # alias kcon='kubectl config use-context'
 # alias kgc='kubectl config get-context'
-alias kalias='alias | egrep "kx=|kn=|kc=|kgi=|kgp=|kgs=|kct|kcon=|kgc="'
+alias kc-alias='alias | egrep "kx=|kn=|kc=|kgi=|kgp=|kgs=|kct|kcon=|kgc="'
 alias kubetail=stern
 alias kc-get-ns='kubectl get ns -o jsonpath="{range .items[*]}{.metadata.name}{'\n'}"'
-alias brew-update='brew update; brew bundle check --global || ( brew bundle --global; brew link tfenv; brew bundle --cleanup --global); brew upgrade; brew cleanup'
+alias kc-shell='kubectl run my-shell --rm -i --tty --restart=Never --image ubuntu -- bash'
+
+# Use brew the desired state way
+alias brew-update='brew update; brew bundle check --global || ( brew bundle --global; brew bundle --cleanup --global); brew upgrade; brew cleanup'
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -155,3 +190,29 @@ function ff { osascript -e 'tell application "Finder"' \
   -e 'end if' -e 'end tell'; }
 
 function cdf { cd "$(ff $@)"; }
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/Cellar/tfenv/2.2.2/versions/1.1.6/terraform terraform
+export KICS_QUERIES_PATH=/usr/local/opt/kics/share/kics/assets/queries
+
+# Turn off Hashicorp telemetry https://developer.hashicorp.com/terraform/cdktf/telemetry
+export CHECKPOINT_DISABLE=true
+
+#compdef cdktf
+###-begin-cdktf-completions-###
+#
+# yargs command completion script
+#
+# Installation: /usr/local/bin/cdktf completion >> ~/.zshrc
+#    or /usr/local/bin/cdktf completion >> ~/.zprofile on OSX.
+#
+_cdktf_yargs_completions() {
+  local reply
+  local si=$IFS
+  IFS=$'
+' reply=($(COMP_CWORD="$((CURRENT - 1))" COMP_LINE="$BUFFER" COMP_POINT="$CURSOR" /usr/local/bin/cdktf --get-yargs-completions "${words[@]}"))
+  IFS=$si
+  _describe 'values' reply
+}
+compdef _cdktf_yargs_completions cdktf
+###-end-cdktf-completions-###
