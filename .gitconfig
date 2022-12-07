@@ -94,5 +94,14 @@ process = git-lfs filter-process
 required = true
 
 # no default user config
-[includeIf "gitdir:~/src/customer/**"]
-path = ~/src/customer/.gitconfig # with user name and email
+[includeIf "gitdir:~/src/work/**"]
+path = ~/src/work/.gitconfig # with user name and email
+
+[includeIf "gitdir:~/src/karstenmueller/**"]
+path = ~/src/karstenmueller/.gitconfig
+
+# example .gitconfig
+# [user]
+# name = myname
+# email = my@example.com
+# signingkey = 64CCDFBA3AE8TC92
