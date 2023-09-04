@@ -135,7 +135,6 @@ brew 'yarn'
 
 # dev Go 
 brew 'golang'                   # -- programming language
-brew 'dep'                      # -- DEPRECATED dependency management tool for Go
 
 # dev python
 brew 'python3'
