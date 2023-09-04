@@ -3,8 +3,6 @@ title: Terminal
 env:
   TERM: xterm-256color
 
-alt_send_esc: false
-
 window:
   dimensions:
     columns: 100
@@ -14,6 +12,7 @@ window:
     y: 0
   decorations: buttonless
   title: Terminal
+  option_as_alt: OnlyLeft # other values are None, OnlyRight, Both
 
 # Colors (Nord)
 colors:
