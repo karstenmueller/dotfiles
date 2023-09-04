@@ -14,25 +14,21 @@ brew 'colima'                   # -- Container runtimes on MacOS (and Linux) wit
 # brew 'nerdctl'                  # Docker-compatible CLI for containerd
 
 # Kubernetes
-brew 'kubernetes-cli'           # -- Kubernetes command-line interface
-tap 'johanhaleby/kubetail'      # -- aggregate (tail/follow) logs from multiple pods into one stream
-brew 'stern'                    # -- Tail multiple Kubernetes pods & their containers
-brew 'kubectx'                  # -- Tool that can switch between kubectl contexts easily and create aliases
-brew 'krew'                     # -- Package manager for kubectl plugins
-brew 'kube-ps1'                 # -- Kubernetes prompt info for bash and zsh
-brew 'derailed/k9s/k9s'         # -- provides a terminal UI to interact with your Kubernetes clusters
-# brew 'minikube'               # -- Run a Kubernetes cluster locally
-# Operator SDK
-# brew 'operator-sdk'           # -- SDK for building Kubernetes applications
-brew 'derailed/popeye/popeye'   # -- A Kubernetes Cluster Sanitizer
-brew 'kubescape'                # -- Kubescape is a K8s open-source tool providing a multi-cloud K8s single pane of glass
+# brew 'kubernetes-cli'           # -- Kubernetes command-line interface
+# tap 'johanhaleby/kubetail'      # -- aggregate (tail/follow) logs from multiple pods into one stream
+# brew 'stern'                    # -- Tail multiple Kubernetes pods & their containers
+# brew 'kubectx'                  # -- Tool that can switch between kubectl contexts easily and create aliases
+# brew 'krew'                     # -- Package manager for kubectl plugins
+# brew 'kube-ps1'                 # -- Kubernetes prompt info for bash and zsh
+# brew 'derailed/k9s/k9s'         # -- provides a terminal UI to interact with your Kubernetes clusters
+# brew 'derailed/popeye/popeye'   # -- A Kubernetes Cluster Sanitizer
+# brew 'kubescape'                # -- Kubescape is a K8s open-source tool providing a multi-cloud K8s single pane of glass
 
 # Helm
-# brew 'helm'                   # -- Kubernetes package manager
-brew 'helm@2'
-brew 'helmfile'                 # -- Deploy Kubernetes Helm Charts
-tap 'helm/tap'  
-brew 'chart-releaser'           # -- Helps Turn GitHub Repositories into Helm Chart Repositories
+# brew 'helm@2'
+# brew 'helmfile'                 # -- Deploy Kubernetes Helm Charts
+# tap 'helm/tap'  
+# brew 'chart-releaser'           # -- Helps Turn GitHub Repositories into Helm Chart Repositories
 
 # Cloud azure
 # brew 'azure/draft/draft'
@@ -44,16 +40,15 @@ brew 'chart-releaser'           # -- Helps Turn GitHub Repositories into Helm Ch
 # Cloud aws
 # tap 'versent/homebrew-taps'
 brew 'awscli'                   # -- Official Amazon AWS command-line interface
-brew 'chamber'
-brew 'saml2aws'                 # -- enables you to login and retrieve AWS temporary credentials using with ADFS or PingFederate Identity Providers
-cask 'session-manager-plugin'   # -- Plugin for AWS CLI to start and end sessions that connect to managed instances
-tap 'weaveworks/tap'
-brew 'weaveworks/tap/eksctl'    # -- a CLI tool for creating clusters on EKS 
-cask 'aws-vault'                # -- ool to securely store and access AWS credentials in a development environment
-# brew 'awsume'                 # -- Utility for easily assuming AWS IAM roles from the command-line
+# brew 'chamber'
+# brew 'saml2aws'                 # -- enables you to login and retrieve AWS temporary credentials using with ADFS or PingFederate Identity Providers
+# cask 'session-manager-plugin'   # -- Plugin for AWS CLI to start and end sessions that connect to managed instances
+# tap 'weaveworks/tap'
+# brew 'weaveworks/tap/eksctl'    # -- a CLI tool for creating clusters on EKS 
+# cask 'aws-vault'                # -- ool to securely store and access AWS credentials in a development environment
 
-# brew 'packer'                 # -- Tool for creating identical machine images for multiple platforms
-cask 'multipass'              # -- Orchestrates virtual Ubuntu instances
+# Ubuntu
+# cask 'multipass'              # -- Orchestrates virtual Ubuntu instances
 
 # Terraform related
 brew 'graphviz'                 # -- Graph visualization software from AT&T and Bell Labs
@@ -62,8 +57,8 @@ brew 'tfenv', link: true        # -- Terraform version manager
 brew 'tflint'                   # -- Linter for Terraform files
 brew 'terraform-docs'           # -- Tool to generate documentation from Terraform modules
 # terragrunt installed by tgenv
-tap 'alextodicescu/tgenv'
-brew 'tgenv', link: true        # -- Terragrunt version manager
+# tap 'alextodicescu/tgenv'
+# brew 'tgenv', link: true        # -- Terragrunt version manager
 brew 'tfsec'                    # -- Static analysis security scanner for your terraform code
 brew 'terrascan'                # -- Detect compliance and security violations across Infrastructure as Code
 brew 'infracost'                # -- Cost estimates for Terraform
@@ -71,7 +66,7 @@ brew 'infracost'                # -- Cost estimates for Terraform
 # brew 'policy_sentry'
 
 # Pulumi related
-brew 'pulumi'
+# brew 'pulumi'
 
 # Microsoft related
 # cask 'powershell'             # -- Command-line shell and scripting language
@@ -99,11 +94,10 @@ brew 'pre-commit'               # -- Framework for managing multi-language pre-c
 
 # GitHub tools
 brew 'gh'                       # -- GitHub’s official command line tool
-cask 'github'                   # -- GitHub’s official desktop client
+# cask 'github'                   # -- GitHub’s official desktop client
 brew 'gitversion'               # -- semantic versioning
 brew 'git-credential-manager'   # -- Stores Git credentials
-tap 'nektos/tap'                # -- ??
-brew 'act'                      # -- Run your GitHub Actions locally
+# brew 'act'                      # -- Run your GitHub Actions locally
 brew 'actionlint'               # -- Static checker for GitHub Actions workflow files
 
 
@@ -113,7 +107,7 @@ cask 'alacritty'                # -- Cross-platform, GPU-accelerated terminal em
 # cask 'kitty'                    # -- GPU-based terminal emulator
 brew 'ripgrep'                  # -- a line-oriented search tool that recursively searches your current directory for a regex pattern.
 brew 'tmux'                     # -- Terminal multiplexer
-cask 'obsidian'                 # -- Knowledge base that works on top of a local folder of plain text Markdown files
+# cask 'obsidian'                 # -- Knowledge base that works on top of a local folder of plain text Markdown files
 # yaml / json
 brew 'jq'                       # -- command-line JSON processor
 brew 'yq'                       # -- Process YAML documents from the CLI
@@ -121,7 +115,7 @@ brew 'yamllint'                 # -- Linter for YAML files
 # tap 'starkandwayne/cf'        # -- BOSH / Cloud Foundry / Kubernetes utilities
 # brew 'spruce'                 # -- a general purpose YAML & JSON merging tool
 cask 'postman'                # -- Collaboration platform for API development
-cask 'mactex-no-gui'            # -- Full TeX Live distribution without GUI applications, use with VScode extension "Latex Workshop"
+# cask 'mactex-no-gui'            # -- Full TeX Live distribution without GUI applications, use with VScode extension "Latex Workshop"
 
 # Shell tools
 brew 'bash'                     # -- install bash version > 4 (macos provides version 3)
@@ -149,7 +143,7 @@ brew 'pyenv-virtualenv'
 brew 'python-tk'
 
 # dev Kubernetes
-brew 'skaffold', link: true     # -- cli tool that facilitates continuous development for Kubernetes applications.
+# brew 'skaffold', link: true     # -- cli tool that facilitates continuous development for Kubernetes applications.
 
 # dev typescript
 brew 'typescript'               # -- Language for application scale JavaScript development
@@ -173,23 +167,23 @@ cask 'flux'                     # -- Adaptive brightness for external displays
 # brew 'ffmpeg'                   # -- Play, record, convert, and stream audio and video
 
 # more messengers ;)
-cask 'slack'
-cask 'telegram'
+# cask 'slack'
+# cask 'telegram'
 cask 'signal'
 
 # miscellaneous apps
-cask 'dropbox'                  # -- Client for the Dropbox cloud storage service
-cask 'alfred'                   # -- Application launcher and productivity software
-cask 'caffeine'                 # -- Utility that prevents the system from going to sleep
+# cask 'dropbox'                  # -- Client for the Dropbox cloud storage service
+# cask 'alfred'                   # -- Application launcher and productivity software
+# cask 'caffeine'                 # -- Utility that prevents the system from going to sleep
 cask 'google-chrome'            # -- Web Browser
-cask 'hazel'                    # -- Automated organization
-cask 'calibre'                  # -- E-books management software
+# cask 'hazel'                    # -- Automated organization
+# cask 'calibre'                  # -- E-books management software
 cask 'grandperspective'         # -- Graphically shows disk usage within a file system
 cask 'atext'                    # -- Tool to replace abbreviations while typing
 # cask 'openconnect-gui'          # -- Graphical OpenConnect client
-cask '1password-cli'            # -- Command-line helper for the 1Password password manager
+# cask '1password-cli'            # -- Command-line helper for the 1Password password manager
 cask 'drawio'                   # -- free online diagram software
-cask 'deepl'                    # -- online translating helper
-cask 'firefox'                  # -- Web Browser Mozilla Firefox
-cask 'monitorcontrol'           # -- Tool to control external monitor brightness & volume
-cask 'handbrake'
+# cask 'deepl'                    # -- online translating helper
+# cask 'firefox'                  # -- Web Browser Mozilla Firefox
+# cask 'monitorcontrol'           # -- Tool to control external monitor brightness & volume
+# cask 'handbrake'
