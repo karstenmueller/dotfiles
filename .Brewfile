@@ -96,7 +96,7 @@ brew 'pre-commit'               # -- Framework for managing multi-language pre-c
 brew 'gh'                       # -- GitHub’s official command line tool
 # cask 'github'                   # -- GitHub’s official desktop client
 brew 'gitversion'               # -- semantic versioning
-brew 'git-credential-manager'   # -- Stores Git credentials
+# brew 'git-credential-oauth'   # -- Stores Git credentials
 # brew 'act'                      # -- Run your GitHub Actions locally
 brew 'actionlint'               # -- Static checker for GitHub Actions workflow files
 
