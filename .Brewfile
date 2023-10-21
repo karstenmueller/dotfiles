@@ -4,17 +4,16 @@
 cask_args appdir: '/Applications'
 
 # Taps
-tap 'homebrew/core'             # -- Core formulae for the Homebrew package manager
 tap 'homebrew/bundle'           # -- Bundler for non-Ruby dependencies from Homebrew, Homebrew Cask, Mac App Store and Whalebrew
 tap 'homebrew/services'         # -- Manage background services with macOS' launchctl daemon manager.
 
 # Docker Inc
-cask 'docker'                   # -- Docker Desktop (run it to create the link to docker command)
-brew 'colima'                   # -- Container runtimes on MacOS (and Linux) with minimal setup
+brew 'docker'                     # -- Docker Desktop (run it to create the link to docker command)
+brew 'colima'                     # -- Container runtimes on MacOS (and Linux) with minimal setup
 # brew 'nerdctl'                  # Docker-compatible CLI for containerd
 
 # Kubernetes
-# brew 'kubernetes-cli'           # -- Kubernetes command-line interface
+brew 'kubectl'                    # -- Kubernetes command-line interface
 # tap 'johanhaleby/kubetail'      # -- aggregate (tail/follow) logs from multiple pods into one stream
 # brew 'stern'                    # -- Tail multiple Kubernetes pods & their containers
 # brew 'kubectx'                  # -- Tool that can switch between kubectl contexts easily and create aliases
@@ -104,6 +103,7 @@ brew 'actionlint'               # -- Static checker for GitHub Actions workflow 
 # Editor & Terminal tools
 cask 'visual-studio-code'       # -- Open-source code editor
 cask 'alacritty'                # -- Cross-platform, GPU-accelerated terminal emulator
+brew 'asciinema'                # -- Record and share terminal sessions
 # cask 'kitty'                    # -- GPU-based terminal emulator
 brew 'ripgrep'                  # -- a line-oriented search tool that recursively searches your current directory for a regex pattern.
 brew 'tmux'                     # -- Terminal multiplexer
@@ -137,7 +137,7 @@ brew 'yarn'
 brew 'golang'                   # -- programming language
 
 # dev python
-brew 'python3'
+# brew 'python3'
 brew 'pyenv-virtualenv'
 brew 'python-tk'
 
@@ -173,16 +173,18 @@ cask 'signal'
 # miscellaneous apps
 # cask 'dropbox'                  # -- Client for the Dropbox cloud storage service
 # cask 'alfred'                   # -- Application launcher and productivity software
-# cask 'caffeine'                 # -- Utility that prevents the system from going to sleep
+cask 'caffeine'                 # -- Utility that prevents the system from going to sleep
 cask 'google-chrome'            # -- Web Browser
+brew 'chrome-cli'
 # cask 'hazel'                    # -- Automated organization
 # cask 'calibre'                  # -- E-books management software
 cask 'grandperspective'         # -- Graphically shows disk usage within a file system
 cask 'atext'                    # -- Tool to replace abbreviations while typing
 # cask 'openconnect-gui'          # -- Graphical OpenConnect client
-# cask '1password-cli'            # -- Command-line helper for the 1Password password manager
+cask '1password'            # -- Command-line helper for the 1Password password manager
 cask 'drawio'                   # -- free online diagram software
 # cask 'deepl'                    # -- online translating helper
 # cask 'firefox'                  # -- Web Browser Mozilla Firefox
 # cask 'monitorcontrol'           # -- Tool to control external monitor brightness & volume
 # cask 'handbrake'
+cask 'rectangle'                   # -- Move and resize windows using keyboard shortcuts or snap areas
