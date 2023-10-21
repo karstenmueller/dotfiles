@@ -216,3 +216,5 @@ _cdktf_yargs_completions() {
 }
 compdef _cdktf_yargs_completions cdktf
 ###-end-cdktf-completions-###
+
+alias ts='screencapture -l$(osascript -e "tell app \"Terminal\" to id of window 1") Terminal.png'

@@ -3,7 +3,7 @@ helper = osxkeychain
 
 [push]
 #default = matching
-default = current
+	default = current
 
 # [remote "origin"]
 #   fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
@@ -11,7 +11,7 @@ default = current
 [core]
 # excludesfile = /home/xxx/.gitignore-global
 pager = less -FRX
-autocrlf = input
+	autocrlf = input
 #whitespace = blank-at-eol,blank-at-eof,trailing-space,space-before-tabautocrlf = true
 
 ## in case your firewall is blocking git://, use https:// instead
@@ -82,10 +82,10 @@ ui = auto
 prune = true
 
 [pull]
-rebase = true
+	rebase = true
 
 [rebase]
-autoStash = true
+	autoStash = true
 
 [filter "lfs"]
 clean = git-lfs clean -- %f
@@ -105,3 +105,5 @@ path = ~/src/karstenmueller/.gitconfig
 # name = myname
 # email = my@example.com
 # signingkey = 64CCDFBA3AE8TC92
+[github]
+	user = karstenmueller
