@@ -1,0 +1,25 @@
+
+# prevent skhd from monitoring events for specific applications.
+#
+# .blacklist [
+#    "kitty"
+#    "terminal"
+#    "qutebrowser"
+# ]
+
+# application specific bindings
+#
+# cmd - n [
+#     "kitty"       : echo "hello kitty"
+#     *             : echo "hello everyone"
+#     "qutebrowser" : echo "hello qutebrowser"
+#     "terminal"    ~
+#     "finder"      : false
+# ]
+
+# open Terminal, blazingly fast compared to iTerm/Hyper
+cmd + ctrl - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+
+# open Browser 
+# cmd + shift - return : open -n -a "Google Chrome" 
+cmd + shift - return : open -n -a "Safari" 

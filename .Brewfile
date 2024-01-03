@@ -1,5 +1,5 @@
-# This file describes the desired state of brew installed apps if using the followimg commands::
-# brew bundle check --global || ( brew bundle --global; brew bundle --cleanup --global); brew upgrade; brew cleanup
+# This file describes the desired state of brew installed apps if using the followimg commands:
+# alias brew-update='brew update; brew bundle check --global || ( brew bundle --global; brew bundle --cleanup --global); brew upgrade; brew cleanup'
 
 cask_args appdir: '/Applications'
 
@@ -104,7 +104,7 @@ brew 'actionlint'               # -- Static checker for GitHub Actions workflow 
 cask 'visual-studio-code'       # -- Open-source code editor
 cask 'alacritty'                # -- Cross-platform, GPU-accelerated terminal emulator
 brew 'asciinema'                # -- Record and share terminal sessions
-# cask 'kitty'                    # -- GPU-based terminal emulator
+cask 'kitty'                    # -- GPU-based terminal emulator
 brew 'ripgrep'                  # -- a line-oriented search tool that recursively searches your current directory for a regex pattern.
 brew 'tmux'                     # -- Terminal multiplexer
 # cask 'obsidian'                 # -- Knowledge base that works on top of a local folder of plain text Markdown files
@@ -164,6 +164,8 @@ brew 'gnupg'                    # -- GNU Pretty Good Privacy (PGP) package
 brew 'pinentry-mac'             # -- Pinentry for GPG on Mac
 cask 'flux'                     # -- Adaptive brightness for external displays
 # brew 'ffmpeg'                   # -- Play, record, convert, and stream audio and video
+tap 'koekeishiya/formulae'
+brew 'koekeishiya/formulae/skhd' # hotkey daemon
 
 # more messengers ;)
 # cask 'slack'
@@ -173,18 +175,20 @@ cask 'signal'
 # miscellaneous apps
 # cask 'dropbox'                  # -- Client for the Dropbox cloud storage service
 # cask 'alfred'                   # -- Application launcher and productivity software
-cask 'caffeine'                 # -- Utility that prevents the system from going to sleep
-cask 'google-chrome'            # -- Web Browser
+cask 'caffeine'                   # -- Utility that prevents the system from going to sleep
+cask 'google-chrome'              # -- Web Browser
 brew 'chrome-cli'
 # cask 'hazel'                    # -- Automated organization
 # cask 'calibre'                  # -- E-books management software
-cask 'grandperspective'         # -- Graphically shows disk usage within a file system
-cask 'atext'                    # -- Tool to replace abbreviations while typing
+cask 'grandperspective'           # -- Graphically shows disk usage within a file system
+cask 'atext'                      # -- Tool to replace abbreviations while typing
 # cask 'openconnect-gui'          # -- Graphical OpenConnect client
-cask '1password'            # -- Command-line helper for the 1Password password manager
-cask 'drawio'                   # -- free online diagram software
+cask '1password'                  # -- Command-line helper for the 1Password password manager
+cask 'drawio'                     # -- free online diagram software
 # cask 'deepl'                    # -- online translating helper
 # cask 'firefox'                  # -- Web Browser Mozilla Firefox
 # cask 'monitorcontrol'           # -- Tool to control external monitor brightness & volume
 # cask 'handbrake'
 cask 'rectangle'                   # -- Move and resize windows using keyboard shortcuts or snap areas
+cask 'zettlr'                     # 
+cask 'flameshot'
