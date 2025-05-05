@@ -3,6 +3,7 @@ SOURCE=$GOPATH/src
 
 _path+="$HOME/.bin"
 _path+=":$HOME/.local/bin"
+_path+=":/opt/homebrew/bin"
 _path+=":$HOME/.tgenv/bin"
 _path+=":$HOME/.helmenv/bin"
 _path+=":/usr/local/opt/coreutils/libexec/gnubin" # use Homebrew GNU tools with their usual names
@@ -18,7 +19,7 @@ export LANG=C
 export TERM="xterm-256color"
 
 export APPLE_SSH_ADD_BEHAVIOR="macos"
-ssh-add -K ~/.ssh/id_rsa # macOS: passphrase will also be stored in the user's keychain
+test -s ~/.ssh/id_rsa && ssh-add -K ~/.ssh/id_rsa # macOS: passphrae will also be stored in the user's keychain
 
 # brew installed nvm
 export NVM_DIR="$HOME/.nvm"
